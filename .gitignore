@@ -1,4 +1,5 @@
 /dieggsy.db*
 /dieggsy.files*
 *.tar.xz
-/emacs-git/emacs
+/emacs-git/*
+/st-git/*
