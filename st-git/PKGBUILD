@@ -28,7 +28,7 @@ pkgver() {
 
 prepare () {
     cd $_pkgname
-    patch --verbose -N <"${srcdir}/config.patch"
+    patch -N <"${srcdir}/config.patch"
 }
 
 build() {
