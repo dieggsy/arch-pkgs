@@ -1,0 +1,54 @@
+# -*- mode: sh -*-
+# Maintainer: dieggsy <dieggsy@pm.me>
+
+_pkgname=emacs
+pkgname=$_pkgname-git
+pkgver=27.0.50.g1a722e8884
+pkgrel=1
+pkgdesc="The extensible, customizable, self-documenting real-time display editor"
+url="http://www.gnu.org/software/emacs/emacs.html"
+arch=('i686' 'x86_64')
+license=('GPL3')
+depends=('alsa-lib' 'libmagick' 'libxpm' 'libjpeg' 'libtiff'
+         'giflib' 'libpng' 'librsvg' 'lcms2' 'libxml2' 'jansson'
+         'libxft' 'libotf' 'gnutls' 'zlib' 'gmp')
+makedepends=('git')
+provides=($_pkgname)
+conflicts=($_pkgname)
+source=(git://git.sv.gnu.org/$_pkgname.git)
+md5sums=('SKIP')
+
+pkgver() {
+    cd $_pkgname
+    printf "%s.g%s" \
+           "$(grep AC_INIT configure.ac | cut -d,  -f2 | tr -d '[:space:]')" \
+           "$(git rev-parse --short HEAD)"
+}
+
+prepare() {
+    cd $_pkgname
+    # to use a custom config.h, place it in the package directory
+    [[ -x configure ]] || (./autogen.sh)
+}
+
+build(){
+    cd $_pkgname
+    ./configure --prefix=/usr --sysconfdir=/etc --libexecdir=/usr/lib \
+                --localstatedir=/var --mandir=/usr/share/man --without-all \
+                --with-sound=yes --with-x-toolkit=lucid --with-imagemagick \
+                --with-xpm --with-jpeg --with-tiff --with-gif --with-png \
+                --with-rsvg --with-lcms2 --with-xml2 --with-json --with-xft \
+                --with-libotf --with-dbus --with-gnutls --with-zlib \
+                --with-modules --with-threads --with-compress-install \
+                --with-libgmp --with-xim
+    make
+}
+
+package() {
+    cd $_pkgname
+    make DESTDIR="$pkgdir/" install
+
+    # # fix user/root permissions on usr/share files
+    find "$pkgdir"/usr/share/emacs/ -exec chown root:root {} +
+
+}
