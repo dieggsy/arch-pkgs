@@ -7,7 +7,7 @@ pkgver=27.0.50.g1a722e8884
 pkgrel=1
 pkgdesc="The extensible, customizable, self-documenting real-time display editor"
 url="http://www.gnu.org/software/emacs/emacs.html"
-arch=('i686' 'x86_64')
+arch=('x86_64')
 license=('GPL3')
 depends=('alsa-lib' 'libmagick' 'libxpm' 'libjpeg' 'libtiff'
          'giflib' 'libpng' 'librsvg' 'lcms2' 'libxml2' 'jansson'
