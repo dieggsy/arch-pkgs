@@ -3,7 +3,7 @@
 
 _pkgname=st
 pkgname=$_pkgname-git
-pkgver=0.8.1.g3be4cf1
+pkgver=0.8.1.22.g3be4cf1
 pkgrel=1
 pgdesc="A simple terminal implementation for X."
 url="https://st.suckless.org/"
@@ -21,9 +21,7 @@ md5sums=('SKIP'
 
 pkgver() {
     cd $_pkgname
-    printf "%s.g%s" \
-           "$(grep 'VERSION =' config.mk | cut -d= -f2 | tr -d '[:space:]')" \
-           "$(git rev-parse --short HEAD)"
+    git describe --tags --long | sed 's/-/./g'
 }
 
 prepare () {

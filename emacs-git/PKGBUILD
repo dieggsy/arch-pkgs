@@ -3,7 +3,7 @@
 
 _pkgname=emacs
 pkgname=$_pkgname-git
-pkgver=27.0.50.g1a722e8884
+pkgver=27.0.50.3907.g9530108fbc
 pkgrel=1
 pkgdesc="The extensible, customizable, self-documenting real-time display editor"
 url="http://www.gnu.org/software/emacs/emacs.html"
@@ -20,9 +20,9 @@ md5sums=('SKIP')
 
 pkgver() {
     cd $_pkgname
-    printf "%s.g%s" \
+    printf "%s.%s" \
            "$(grep AC_INIT configure.ac | cut -d,  -f2 | tr -d '[:space:]')" \
-           "$(git rev-parse --short HEAD)"
+           "$(git describe --tags --long | cut -d- -f3- | sed 's/-/./g')"
 }
 
 prepare() {
