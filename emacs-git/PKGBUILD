@@ -46,7 +46,7 @@ build(){
 
 package() {
     cd $_pkgname
-    make DESTDIR="$pkgdir/" install
+    make DESTDIR="$pkgdir" install
 
     # # fix user/root permissions on usr/share files
     find "$pkgdir"/usr/share/emacs/ -exec chown root:root {} +
