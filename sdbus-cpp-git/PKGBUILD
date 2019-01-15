@@ -1,0 +1,36 @@
+# -*- mode: sh -*-
+# Maintainer: dieggsy <dieggsy@pm.me>
+
+_pkgname=sdbus-cpp
+pkgname=$_pkgname-git
+pkgver=0.4.0.0.g47fad7d
+pkgrel=1
+pkgdesc="A C++ API library for D-Bus IPC, based on sd-bus implementation."
+url="https://github.com/Kistler-Group/sdbus-cpp"
+arch=('x86_64')
+license=('LGPL2.1')
+depends=('libsystemd')
+makedepends=('git' 'cmake')
+provides=($_pkgname)
+conflicts=($_pkgname)
+source=('git+https://github.com/kistler-group/sdbus-cpp')
+md5sums=('SKIP')
+
+pkgver() {
+    cd $_pkgname
+    git describe --tags --long | sed 's/-/./g' | cut -c2-
+}
+
+build() {
+    cd $_pkgname
+    mkdir -p build
+    ls
+    cd build
+	cmake .. -DCMAKE_INSTALL_PREFIX='/usr' -DCMAKE_INSTALL_LIBDIR='/usr/lib' -DENABLE_TESTS=OFF
+    make
+}
+
+package () {
+    cd $_pkgname/build
+	make DESTDIR="$pkgdir/" install
+}
