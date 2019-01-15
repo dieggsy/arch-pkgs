@@ -3,3 +3,4 @@
 *.tar.xz
 /emacs-git/*
 /st-git/*
+/iosevka-git/*

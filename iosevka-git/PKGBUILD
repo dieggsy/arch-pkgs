@@ -1,0 +1,35 @@
+# -*- mode: sh -*-
+# Maintainer: dieggsy <dieggsy@pm.me>
+
+_pkgname=iosevka
+pkgname=ttf-$_pkgname-git
+pkgver=2.0.2.8.g70241e98
+pkgrel=1
+pkgdesc="Slender typeface for code, from code."
+url="https://github.com/be5invis/Iosevka"
+arch=('x86_64')
+license=('custom:OFL')
+makedepends=('git' 'npm' 'ttfautohint' 'otfcc')
+source=('git+https://github.com/be5invis/iosevka#branch=releases'
+        'private-build-plans.toml')
+md5sums=('SKIP'
+         '5acbd0d674f7f9853b4412a621023c0a')
+
+pkgver() {
+    cd $_pkgname
+    git describe --tags --long | sed 's/-/./g' | cut -c2-
+}
+
+prepare () {
+    cp "${srcdir}/private-build-plans.toml" "$_pkgname"
+}
+build () {
+    cd $_pkgname
+    npm install
+    npm run build -- contents:iosevka-custom
+}
+
+package() {
+  install -d "${pkgdir}/usr/share/fonts/TTF"
+  install -m644 iosevka/dist/*/ttf/*.ttf "${pkgdir}/usr/share/fonts/TTF/"
+}
