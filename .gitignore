@@ -1,6 +1,6 @@
 /dieggsy.db*
 /dieggsy.files*
-*.tar.xz
+*.tar.xz*
 /emacs-git/*
 /st-git/*
 /iosevka-git/*
