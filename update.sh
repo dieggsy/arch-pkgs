@@ -1,7 +1,7 @@
 #!/bin/sh
 export PKGDEST=$(git rev-parse --show-toplevel)
 
-find -name PKGBUILD -execdir makepkg -scrf --noconfirm \;
+find -name PKGBUILD -execdir makepkg --sign -scrf --noconfirm \;
 
 repo-add --sign -n dieggsy.db.tar.xz *.pkg.tar.xz
 
