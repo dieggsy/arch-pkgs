@@ -75,6 +75,4 @@ depends=(bspwm
          xorg-xrefresh
          xorg-xset
          xorg-xsetroot
-         xorg-xwininfo
-
-        )
+         xorg-xwininfo)

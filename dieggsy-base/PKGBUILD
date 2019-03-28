@@ -102,6 +102,7 @@ depends=(ccache
          which)
 
 post_install() {
+    systemctl enable --now cronie.service
     systemctl enable --now ntpd.service
     systemctl enable --now paccache.timer
 }
