@@ -1,0 +1,108 @@
+# Maintainer: dieggsy <dieggsy@pm.me>
+
+pkgname=dieggsy-base
+pkgver=1
+pkgrel=1
+pkgdesc="Base system meta-package"
+arch=('any')
+url="https://github.com/dieggsy/arch-pkgs"
+license=('MIT')
+groups=('dieggsy')
+depends=(ccache
+         cronie
+         gdb
+         git
+         htop
+         mlocate
+         mosh
+         ncdu
+         ntp
+         neovim
+         pacman-contrib
+         python-neovim
+         reflector
+         ripgrep
+         rsync
+         stow
+         thefuck
+         unzip
+         zsh
+         zsh-autosuggestions
+         zsh-completions
+         zsh-history-substring-search
+
+         # base
+         bash
+         bzip2
+         coreutils
+         cryptsetup
+         device-mapper
+         diffutils
+         e2fsprogs
+         file
+         filesystem
+         findutils
+         gawk
+         gcc-libs
+         gettext
+         glibc
+         grep
+         gzip
+         inetutils
+         iproute2
+         iputils
+         less
+         licenses
+         linux
+         logrotate
+         lvm2
+         man-db
+         man-pages
+         mdadm
+         pacman
+         pciutils
+         perl
+         procps-ng
+         psmisc
+         sed
+         shadow
+         sysfsutils
+         systemd-sysvcompat
+         tar
+         texinfo
+         usbutils
+         util-linux
+         which
+         xfsprogs
+
+         # base-devel
+         autoconf
+         automake
+         binutils
+         bison
+         fakeroot
+         file
+         findutils
+         flex
+         gawk
+         gcc
+         gettext
+         grep
+         gzip
+         libtool
+         m4
+         make
+         pacman
+         patch
+         pkgconf
+         sed
+         sudo
+         texinfo
+         util-linux
+         which)
+
+post_install() {
+    systemctl enable --now ntpd.service
+    systemctl enable --now paccache.timer
+}
+

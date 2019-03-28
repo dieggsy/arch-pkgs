@@ -1,0 +1,80 @@
+# Maintainer: dieggsy <dieggsy@pm.me>
+
+pkgname=dieggsy-desktop
+pkgver=1
+pkgrel=1
+pkgdesc="Desktop system meta-package"
+arch=('any')
+url="https://github.com/dieggsy/arch-pkgs"
+license=('MIT')
+groups=('dieggsy')
+depends=(bspwm
+         alsa-utils
+         aspell-en
+         autocutsel
+         blueman
+         bluez
+         cmus
+         dnsmasq
+         dunst
+         emacs-git
+         espeak
+         exfat-utils
+         feh
+         firefox
+         gvfs
+         libdvdcss
+         libreoffice-fresh
+         materia-gtk-theme
+         mpv
+         networkmanager
+         networkmanager-openvpn
+         nm-connection-editor
+         ntfs-3g
+         openssh
+         openssh-askpass
+         openvpn
+         papirus-icon-theme
+         pass
+         pavucontrol
+         pcmanfm-gtk3
+         playerctl
+         pulseaudio-alsa
+         pulseaudio-bluetooth
+         rofi
+         scrot
+         slock
+         st-git
+         sxhkd
+         sxiv
+         terminus-font
+         texlive-core
+         tmux
+         ttf-iosevka-git
+         udiskie
+         vlc
+         xarchiver
+         xcape
+         xss-lock
+         youtube-dl
+         zathura
+         zathura-pdf-poppler
+         zathura-ps
+
+         # xorg
+         xorg-xinput
+         ## xorg group
+         xorg-fonts-alias
+         xorg-server
+         xorg-xbacklight
+         xorg-xev
+         xorg-xinit
+         xorg-xmodmap
+         xorg-xprop
+         xorg-xrandr
+         xorg-xrefresh
+         xorg-xset
+         xorg-xsetroot
+         xorg-xwininfo
+
+        )

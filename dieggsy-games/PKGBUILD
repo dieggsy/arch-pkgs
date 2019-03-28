@@ -1,0 +1,18 @@
+# Maintainer: dieggsy <dieggsy@pm.me>
+
+pkgname=dieggsy-games
+pkgver=1
+pkgrel=1
+pkgdesc="Gaming meta-package"
+arch=('any')
+url="https://github.com/dieggsy/arch-pkgs"
+license=('MIT')
+groups=('dieggsy')
+depends=(lib32-libpulse
+         lib32-openal
+         lib32-vulkan-intel
+         lutris
+         minetest
+         steam
+         vulkan-intel
+         wine)

@@ -1,0 +1,17 @@
+# Maintainer: dieggsy <dieggsy@pm.me>
+
+pkgname=dieggsy-devel
+pkgver=1
+pkgrel=1
+pkgdesc="Development meta-package"
+arch=('any')
+url="https://github.com/dieggsy/arch-pkgs"
+license=('MIT')
+groups=('dieggsy')
+depends=(chicken
+         eigen
+         opencv
+         python-numpy
+         python-scipy
+         racket
+         rustup)
