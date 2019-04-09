@@ -18,7 +18,7 @@ depends=(bspwm
          dnsmasq
          dunst
          emacs-git
-         espeak
+         espeak-ng
          exfat-utils
          feh
          firefox
