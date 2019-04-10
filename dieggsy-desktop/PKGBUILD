@@ -53,6 +53,7 @@ depends=(bspwm
          ttf-iosevka-git
          udiskie
          vlc
+         x11-ssh-askpass
          xarchiver
          xcape
          xss-lock
