@@ -1,7 +1,7 @@
 # Maintainer: dieggsy <dieggsy@pm.me>
 
 pkgname=dieggsy-desktop
-pkgver=2
+pkgver=3
 pkgrel=1
 pkgdesc="Desktop system meta-package"
 arch=('any')
@@ -42,11 +42,12 @@ depends=(bspwm
          pulseaudio-alsa
          pulseaudio-bluetooth
          rofi
+         rxvt-unicode
          scrot
          slock
-         st-git
          sxhkd
          sxiv
+         syncthing
          terminus-font
          texlive-core
          tmux
