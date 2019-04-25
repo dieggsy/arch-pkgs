@@ -2,13 +2,14 @@
 
 pkgname=dieggsy-devel
 pkgver=1
-pkgrel=1
+pkgrel=2
 pkgdesc="Development meta-package"
 arch=('any')
 url="https://github.com/dieggsy/arch-pkgs"
 license=('MIT')
 groups=('dieggsy')
-depends=(chicken
+depends=(bear
+         chicken
          eigen
          opencv
          python-numpy

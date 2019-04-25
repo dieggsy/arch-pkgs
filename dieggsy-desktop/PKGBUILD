@@ -1,7 +1,7 @@
 # Maintainer: dieggsy <dieggsy@pm.me>
 
 pkgname=dieggsy-desktop
-pkgver=3
+pkgver=4
 pkgrel=1
 pkgdesc="Desktop system meta-package"
 arch=('any')
@@ -22,12 +22,15 @@ depends=(bspwm
          exfat-utils
          feh
          firefox
+         guvcview
          gvfs
          libdvdcss
          libreoffice-fresh
          materia-gtk-theme
          mpv
+         mpv-mpris
          networkmanager
+         networkmanager-dmenu-git
          networkmanager-openvpn
          nm-connection-editor
          ntfs-3g
@@ -38,23 +41,35 @@ depends=(bspwm
          pass
          pavucontrol
          pcmanfm-gtk3
+         phantomjs-bin
          playerctl
+         polybar
          pulseaudio-alsa
          pulseaudio-bluetooth
          rofi
          rxvt-unicode
+         screenkey
          scrot
          slock
+         spotify
          sxhkd
          sxiv
          syncthing
          terminus-font
          texlive-core
+         thermald
          tmux
          ttf-iosevka-git
+         ttf-material-design-icons
+         ttf-sarasa-gothic
+         ttf-symbola
+         ttf-weather-icons
+         tzupdate
          udiskie
+         unclutter-xfixes-git
          vlc
          x11-ssh-askpass
+         xcursor-breeze
          xarchiver
          xcape
          xss-lock

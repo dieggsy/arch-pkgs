@@ -1,7 +1,7 @@
 # Maintainer: dieggsy <dieggsy@pm.me>
 
 pkgname=dieggsy-base
-pkgver=2
+pkgver=3
 pkgrel=1
 pkgdesc="Base system meta-package"
 arch=('any')
@@ -14,10 +14,11 @@ depends=(ccache
          git
          htop
          mlocate
-         mosh
+         mosh-git
          ncdu
          ntp
          neovim
+         neovim-drop-in
          pacman-contrib
          python-neovim
          reflector
@@ -26,9 +27,12 @@ depends=(ccache
          stow
          thefuck
          unzip
+         yay-bin
          zsh
+         zsh-autopair-git
          zsh-autosuggestions
          zsh-completions
+         zsh-fast-syntax-highlighting-git
          zsh-history-substring-search
 
          # base
