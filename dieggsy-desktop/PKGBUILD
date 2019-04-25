@@ -1,7 +1,7 @@
 # Maintainer: dieggsy <dieggsy@pm.me>
 
 pkgname=dieggsy-desktop
-pkgver=4
+pkgver=5
 pkgrel=1
 pkgdesc="Desktop system meta-package"
 arch=('any')
@@ -15,6 +15,7 @@ depends=(bspwm
          blueman
          bluez
          cmus
+         d-feet
          dnsmasq
          dunst
          emacs-git
@@ -33,6 +34,7 @@ depends=(bspwm
          networkmanager-dmenu-git
          networkmanager-openvpn
          nm-connection-editor
+         nordvpn-bin
          ntfs-3g
          openssh
          openssh-askpass
