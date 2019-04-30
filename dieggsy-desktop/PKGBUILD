@@ -2,7 +2,7 @@
 
 pkgname=dieggsy-desktop
 pkgver=5
-pkgrel=1
+pkgrel=2
 pkgdesc="Desktop system meta-package"
 arch=('any')
 url="https://github.com/dieggsy/arch-pkgs"
@@ -49,11 +49,11 @@ depends=(bspwm
          pulseaudio-alsa
          pulseaudio-bluetooth
          rofi
-         rxvt-unicode
          screenkey
          scrot
          slock
          spotify
+         st-git
          sxhkd
          sxiv
          syncthing
