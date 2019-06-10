@@ -11,7 +11,7 @@ arch=('x86_64')
 license=('GPL3')
 depends=('alsa-lib' 'libmagick' 'libxpm' 'libjpeg' 'libtiff'
          'giflib' 'libpng' 'librsvg' 'lcms2' 'libxml2' 'jansson'
-         'libxft' 'libotf' 'gnutls' 'zlib' 'gmp')
+         'libxft' 'libotf' 'gnutls' 'zlib' 'gmp' 'harfbuzz')
 makedepends=('git')
 provides=($_pkgname)
 conflicts=($_pkgname)
@@ -40,7 +40,7 @@ build(){
                 --with-rsvg --with-lcms2 --with-xml2 --with-json --with-xft \
                 --with-libotf --with-dbus --with-gnutls --with-zlib \
                 --with-modules --with-threads --with-compress-install \
-                --with-libgmp --with-xim
+                --with-libgmp --with-xim --with-harfbuzz
     make
 }
 
