@@ -2,7 +2,7 @@
 
 pkgname=dieggsy-desktop
 pkgver=5
-pkgrel=2
+pkgrel=3
 pkgdesc="Desktop system meta-package"
 arch=('any')
 url="https://github.com/dieggsy/arch-pkgs"
@@ -51,7 +51,7 @@ depends=(bspwm
          rofi
          screenkey
          scrot
-         slock
+         physlock
          spotify
          st-git
          sxhkd
