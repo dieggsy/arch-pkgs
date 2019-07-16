@@ -1,8 +1,8 @@
 # Maintainer: dieggsy <dieggsy@pm.me>
 
 pkgname=dieggsy-desktop
-pkgver=5
-pkgrel=3
+pkgver=6
+pkgrel=1
 pkgdesc="Desktop system meta-package"
 arch=('any')
 url="https://github.com/dieggsy/arch-pkgs"
@@ -15,6 +15,7 @@ depends=(bspwm
          blueman
          bluez
          cmus
+         compton
          d-feet
          dnsmasq
          dunst
