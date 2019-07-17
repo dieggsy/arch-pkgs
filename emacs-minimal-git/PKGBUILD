@@ -13,7 +13,7 @@ depends=('libmagick' 'libxml2' 'jansson' 'gnutls' 'zlib' 'gmp')
 makedepends=('git')
 provides=($_pkgname)
 conflicts=($_pkgname emacs)
-source=(git://git.sv.gnu.org/$_pkgname.git)
+source=(git://git.sv.gnu.org/emacs.git)
 md5sums=('SKIP')
 
 pkgver() {
