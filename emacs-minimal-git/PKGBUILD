@@ -34,7 +34,7 @@ build(){
                 --localstatedir=/var --mandir=/usr/share/man --without-all \
                 --with-xml2 --with-json --with-dbus --with-gnutls --with-zlib \
                 --with-modules --with-threads --with-compress-install \
-                --with-libgmp
+                --with-libgmp --with-x-toolkit=no
     make
 }
 
