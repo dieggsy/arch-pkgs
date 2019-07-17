@@ -1,7 +1,7 @@
 # -*- mode: sh -*-
 # Maintainer: dieggsy <dieggsy@pm.me>
 
-_pkgname=emacs
+_pkgname=emacs-minimal
 pkgname=$_pkgname-git
 pkgver=27.0.50.3907.g9530108fbc
 pkgrel=1
@@ -12,7 +12,7 @@ license=('GPL3')
 depends=('libmagick' 'libxml2' 'jansson' 'gnutls' 'zlib' 'gmp')
 makedepends=('git')
 provides=($_pkgname)
-conflicts=($_pkgname)
+conflicts=($_pkgname emacs)
 source=(git://git.sv.gnu.org/$_pkgname.git)
 md5sums=('SKIP')
 
