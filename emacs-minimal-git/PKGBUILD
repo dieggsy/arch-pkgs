@@ -1,0 +1,49 @@
+# -*- mode: sh -*-
+# Maintainer: dieggsy <dieggsy@pm.me>
+
+_pkgname=emacs
+pkgname=$_pkgname-git
+pkgver=27.0.50.3907.g9530108fbc
+pkgrel=1
+pkgdesc="The extensible, customizable, self-documenting real-time display editor"
+url="http://www.gnu.org/software/emacs/emacs.html"
+arch=('x86_64')
+license=('GPL3')
+depends=('libmagick' 'libxml2' 'jansson' 'gnutls' 'zlib' 'gmp')
+makedepends=('git')
+provides=($_pkgname)
+conflicts=($_pkgname)
+source=(git://git.sv.gnu.org/$_pkgname.git)
+md5sums=('SKIP')
+
+pkgver() {
+    cd $_pkgname
+    printf "%s.%s" \
+           "$(grep AC_INIT configure.ac | cut -d,  -f2 | tr -d '[:space:]')" \
+           "$(git describe --tags --long | cut -d- -f3- | sed 's/-/./g')"
+}
+
+prepare() {
+    cd $_pkgname
+    # to use a custom config.h, place it in the package directory
+    [[ -x configure ]] || (./autogen.sh)
+}
+
+build(){
+    cd $_pkgname
+    ./configure --prefix=/usr --sysconfdir=/etc --libexecdir=/usr/lib \
+                --localstatedir=/var --mandir=/usr/share/man --without-all \
+                --with-xml2 --with-json --with-dbus --with-gnutls --with-zlib \
+                --with-modules --with-threads --with-compress-install \
+                --with-libgmp
+    make
+}
+
+package() {
+    cd $_pkgname
+    make DESTDIR="$pkgdir" install
+
+    # # fix user/root permissions on usr/share files
+    find "$pkgdir"/usr/share/emacs/ -exec chown root:root {} +
+
+}
