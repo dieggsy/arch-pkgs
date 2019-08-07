@@ -4,16 +4,16 @@
 _pkgname=iosevka
 pkgname=ttf-$_pkgname-git
 pkgver=2.0.2.8.g70241e98
-pkgrel=1
+pkgrel=2
 pkgdesc="Slender typeface for code, from code."
 url="https://github.com/be5invis/Iosevka"
 arch=('x86_64')
 license=('custom:OFL')
 makedepends=('git' 'npm' 'ttfautohint' 'otfcc')
-source=('git+https://github.com/be5invis/iosevka#branch=releases'
+source=('git+https://github.com/be5invis/iosevka'
         'private-build-plans.toml')
 md5sums=('SKIP'
-         '5acbd0d674f7f9853b4412a621023c0a')
+         'SKIP')
 
 pkgver() {
     cd $_pkgname
