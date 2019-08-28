@@ -9,9 +9,11 @@ find ! -path "./dieggsy-*" -name PKGBUILD -execdir makepkg --sign -scrf --noconf
 
 find -path "./dieggsy-*" -name PKGBUILD -execdir makepkg --sign -dcf --noconfirm \;
 
+cd $PKGDEST
 repo-add --sign -n dieggsy.db.tar.xz *.pkg.tar.xz
 
 ls -rv *.pkg.tar.xz* | awk -F'[0-9]' '++n[$1]>2' | xargs -r rm
+cd -
 
 git clean -ffdx -e '/*.tar.xz*' -e '/*.db*' -e '/*.files*'
 
