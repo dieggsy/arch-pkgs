@@ -1,9 +1,9 @@
 #!/bin/sh
 
 default_dest="$(git rev-parse --show-toplevel)/pkg"
-[ $PKGDEST ] || mkdir -p default_dest
 
 export PKGDEST=${PKGDEST:-$default_dest}
+mkdir -p $PKGDEST
 
 find ! -path "./dieggsy-*" -name PKGBUILD -execdir makepkg --sign -scrf --noconfirm \;
 
