@@ -10,7 +10,7 @@ url="https://github.com/be5invis/Iosevka"
 arch=('x86_64')
 license=('custom:OFL')
 makedepends=('git' 'npm' 'ttfautohint' 'otfcc')
-source=('git+https://github.com/be5invis/iosevka'
+source=('git+https://github.com/be5invis/iosevka#branch=releases'
         'private-build-plans.toml')
 md5sums=('SKIP'
          'SKIP')
