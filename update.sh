@@ -14,7 +14,6 @@ find ! -path "./dieggsy-*" -name PKGBUILD -execdir makepkg -scrf --noconfirm \;
 find -path "./dieggsy-*" -name PKGBUILD -execdir makepkg -dcf --noconfirm \;
 
 cd $PKGDEST
-repo-add dieggsy.db.tar.xz *.pkg.tar.xz
+repo-add -R dieggsy.db.tar.xz *.pkg.tar.xz
 
-ls -rv *.pkg.tar.xz* | awk -F'[0-9]' '++n[$1]>2' | xargs -r rm
 cd -
