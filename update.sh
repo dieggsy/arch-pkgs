@@ -24,6 +24,6 @@ repo-add -Rn dieggsy.db.tar.xz *.pkg.tar.xz
 
 for ext in db files; do
     gpg --yes --batch --pinentry=loopback --passphrase-file=$PASSFILE -b dieggsy.$ext.tar.xz
-    ln -s dieggsy.$ext.tar.xz.sig dieggsy.$ext.sig
+    ln -sf dieggsy.$ext.tar.xz.sig dieggsy.$ext.sig
 done
 cd -
