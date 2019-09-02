@@ -9,11 +9,11 @@ export SRCDEST="$top_dir/src-common"
 mkdir -p $PKGDEST
 mkdir -p $SRCDEST
 
-find ! -path "./dieggsy-*" -name PKGBUILD -execdir makepkg -scrf --noconfirm \;
+find ! -path "./dieggsy-*" -name PKGBUILD -execdir makepkg -scr --noconfirm \;
 
-find -path "./dieggsy-*" -name PKGBUILD -execdir makepkg -dcf --noconfirm \;
+find -path "./dieggsy-*" -name PKGBUILD -execdir makepkg -dc --noconfirm \;
 
 cd $PKGDEST
-repo-add -R dieggsy.db.tar.xz *.pkg.tar.xz
+repo-add -Rn dieggsy.db.tar.xz *.pkg.tar.xz
 
 cd -
