@@ -17,7 +17,7 @@ find -path "./dieggsy-*" -name PKGBUILD -execdir makepkg -dc --noconfirm \;
 
 cd $PKGDEST
 for i in *.pkg.tar.xz; do
-    gpg --yes --batch --pinentry=loopback --passhprase-file=$PASSFILE -b $i
+    gpg --yes --batch --pinentry=loopback --passphrase-file=$PASSFILE -b $i
 done
 
 repo-add -Rn dieggsy.db.tar.xz *.pkg.tar.xz
