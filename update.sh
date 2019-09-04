@@ -1,7 +1,5 @@
 #!/bin/sh
 
-[ -z $PASSFILE ] && echo "No passfile" && exit 1;
-
 top_dir="$(git rev-parse --show-toplevel)"
 default_dest="$top_dir/pkg"
 
