@@ -11,19 +11,12 @@ export SRCDEST="$top_dir/src-common"
 mkdir -p $PKGDEST
 mkdir -p $SRCDEST
 
-find ! -path "./dieggsy-*" -name PKGBUILD -execdir makepkg -scr --noconfirm \;
+find ! -path "./dieggsy-*" -name PKGBUILD -execdir makepkg -scr --sign --noconfirm \;
 
-find -path "./dieggsy-*" -name PKGBUILD -execdir makepkg -dc --noconfirm \;
+find -path "./dieggsy-*" -name PKGBUILD -execdir makepkg -dc --sign --noconfirm \;
 
 cd $PKGDEST
-for i in *.pkg.tar.xz; do
-    gpg --yes --batch --pinentry=loopback --passphrase-file=$PASSFILE -b $i
-done
 
-repo-add -Rn dieggsy.db.tar.xz *.pkg.tar.xz
+repo-add --sign -R -n dieggsy.db.tar.xz *.pkg.tar.xz
 
-for ext in db files; do
-    gpg --yes --batch --pinentry=loopback --passphrase-file=$PASSFILE -b dieggsy.$ext.tar.xz
-    ln -sf dieggsy.$ext.tar.xz.sig dieggsy.$ext.sig
-done
 cd -
