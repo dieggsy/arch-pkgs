@@ -8,13 +8,9 @@ arch=('any')
 url="https://github.com/dieggsy/arch-pkgs"
 license=('MIT')
 groups=('dieggsy')
-depends=(bear
+depends=(python
          chicken
-         clang
-         eigen
          hyperfine-bin
-         opencv
+         python
          python-numpy
-         python-scipy
-         racket
-         rustup)
+         python-scipy)
