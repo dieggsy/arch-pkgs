@@ -14,61 +14,26 @@ depends=(ccache
          git
          htop
          mlocate
-         mosh-git
+         autossh
          ncdu
          ntp
          neovim
-         neovim-drop-in
          pacman-contrib
          python-neovim
          reflector
          ripgrep
          rsync
          stow
-         thefuck
-         unzip
          yay-bin
          zsh
          zsh-autopair-git
          zsh-autosuggestions
          zsh-completions
-         zsh-fast-syntax-highlighting-git
          zsh-history-substring-search
 
          # base
-         bash
-         bzip2
-         coreutils
-         cryptsetup
-         device-mapper
-         diffutils
-         file
-         filesystem
-         findutils
-         gawk
-         gcc-libs
-         gettext
-         glibc
-         grep
-         gzip
-         inetutils
-         iproute2
-         iputils
-         less
-         licenses
+         base
          linux
-         logrotate
-         man-db
-         man-pages
-         pacman
-         perl
-         procps-ng
-         sed
-         systemd-sysvcompat
-         tar
-         texinfo
-         usbutils
-         which
 
          # base-devel
          autoconf
