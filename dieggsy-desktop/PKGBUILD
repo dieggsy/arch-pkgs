@@ -11,7 +11,7 @@ groups=('dieggsy')
 depends=(bspwm
          alsa-utils
          aspell-en
-         autocutsel
+         # autocutsel
          blueman
          bluez
          cmus
@@ -21,30 +21,30 @@ depends=(bspwm
          dunst
          emacs-git
          espeak-ng
-         exfat-utils
+         # exfat-utils
          feh
          firefox
-         guvcview
-         gvfs
+         # guvcview
+         # gvfs
          libdvdcss
          libreoffice-fresh
-         materia-gtk-theme
+         # materia-gtk-theme
          mpv
-         mpv-mpris
+         # mpv-mpris
          networkmanager
          networkmanager-dmenu-git
          networkmanager-openvpn
          nm-connection-editor
          nordvpn-bin
-         ntfs-3g
+         # ntfs-3g
          openssh
          openssh-askpass
          openvpn
          papirus-icon-theme
          pass
          pavucontrol
-         pcmanfm-gtk3
-         phantomjs-bin
+         # pcmanfm-gtk3
+         # phantomjs-bin
          playerctl
          polybar
          pulseaudio-alsa
@@ -57,8 +57,8 @@ depends=(bspwm
          st-git
          sxhkd
          sxiv
-         syncthing
-         terminus-font
+         # syncthing
+         # terminus-font
          texlive-core
          thermald
          tmux
@@ -66,14 +66,14 @@ depends=(bspwm
          ttf-material-design-icons
          ttf-sarasa-gothic
          ttf-symbola
-         ttf-weather-icons
+         # ttf-weather-icons
          tzupdate
-         udiskie
+         # udiskie
          unclutter-xfixes-git
-         vlc
+         # vlc
          x11-ssh-askpass
          xcursor-breeze
-         xarchiver
+         # xarchiver
          xcape
          xss-lock
          youtube-dl
