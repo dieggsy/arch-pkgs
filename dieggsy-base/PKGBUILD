@@ -1,7 +1,7 @@
 # Maintainer: dieggsy <dieggsy@pm.me>
 
 pkgname=dieggsy-base
-pkgver=3
+pkgver=3.1
 pkgrel=1
 pkgdesc="Base system meta-package"
 arch=('any')
