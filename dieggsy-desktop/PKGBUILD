@@ -1,7 +1,7 @@
 # Maintainer: dieggsy <dieggsy@pm.me>
 
 pkgname=dieggsy-desktop
-pkgver=6.1
+pkgver=6.2
 pkgrel=1
 pkgdesc="Desktop system meta-package"
 arch=('any')
@@ -63,7 +63,6 @@ depends=(bspwm
          thermald
          tmux
          ttf-iosevka-git
-         ttf-material-design-icons
          ttf-sarasa-gothic
          ttf-symbola
          # ttf-weather-icons
