@@ -1,7 +1,7 @@
 # Maintainer: dieggsy <dieggsy@pm.me>
 
 pkgname=dieggsy-devel
-pkgver=2.1
+pkgver=2.2
 pkgrel=1
 pkgdesc="Development meta-package"
 arch=('any')
@@ -9,6 +9,7 @@ url="https://github.com/dieggsy/arch-pkgs"
 license=('MIT')
 groups=('dieggsy')
 depends=(python
+         python-dbus
          chicken
          hyperfine-bin
          python

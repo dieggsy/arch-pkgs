@@ -1,7 +1,7 @@
 # Maintainer: dieggsy <dieggsy@pm.me>
 
 pkgname=dieggsy-desktop
-pkgver=6.2
+pkgver=6.3
 pkgrel=1
 pkgdesc="Desktop system meta-package"
 arch=('any')
@@ -24,6 +24,8 @@ depends=(bspwm
          # exfat-utils
          feh
          firefox
+         gnome-keyring # for nextcloud-client
+         gnome-themes-extra # for Adwaita-dark
          # guvcview
          # gvfs
          libdvdcss
@@ -34,6 +36,7 @@ depends=(bspwm
          networkmanager
          networkmanager-dmenu-git
          networkmanager-openvpn
+         nextcloud-client
          nm-connection-editor
          nordvpn-bin
          # ntfs-3g
@@ -42,6 +45,7 @@ depends=(bspwm
          openvpn
          papirus-icon-theme
          pass
+         passff-host
          pavucontrol
          # pcmanfm-gtk3
          # phantomjs-bin
