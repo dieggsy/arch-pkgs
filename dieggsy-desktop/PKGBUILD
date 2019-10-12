@@ -1,7 +1,7 @@
 # Maintainer: dieggsy <dieggsy@pm.me>
 
 pkgname=dieggsy-desktop
-pkgver=6.3
+pkgver=6.4
 pkgrel=1
 pkgdesc="Desktop system meta-package"
 arch=('any')
@@ -29,6 +29,7 @@ depends=(bspwm
          # guvcview
          # gvfs
          libdvdcss
+         libnotify
          libreoffice-fresh
          # materia-gtk-theme
          mpv
@@ -65,6 +66,7 @@ depends=(bspwm
          # terminus-font
          texlive-core
          thermald
+         tlp
          tmux
          ttf-iosevka-git
          ttf-sarasa-gothic
@@ -99,3 +101,10 @@ depends=(bspwm
          xorg-xset
          xorg-xsetroot
          xorg-xwininfo)
+
+post_install() {
+    systemctl enable --now tlp.service tlp-sleep.service
+    systemctl enable --now thermald
+    systemctl enable --now NetworkManager.service NetworkManager-dispatcher.service
+    systemctl enable --now bluetooth.service
+}
