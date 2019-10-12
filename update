@@ -1,0 +1,64 @@
+#!/bin/sh
+
+# arg=${1:-all}
+
+# options=$(getopt all git meta)
+usage () {
+    echo -e "usage: ./update [-f] [-h] [COMMAND]...\n"
+    echo -e "Available commands:\n"
+    echo "      git     only build git packages and add to repo"
+    echo "      meta    only build meta-packages and add to repo"
+    echo -e "  -f          force rebuild the packages (makepkg -f option)"
+    echo -e "  -h, help    show this message and exit\n"
+    echo -e "Note: Specifying no options is equivalent to ./update git meta\n"
+    echo "current \$PKGDEST: $PKGDEST"
+    exit
+}
+
+while getopts ":f" opt; do
+    case $opt in
+        f) force="-f"; shift ;;
+        h) usage ;;
+        \?) usage ;;
+    esac
+done
+
+if [ -z "$1" ]; then
+    set git meta
+fi
+
+while [ -n "$1" ]; do
+    case "$1" in
+        meta) meta=true; shift ;;
+        git) git=true; shift ;;
+        help) usage ;;
+        *) usage ;;
+    esac
+done
+
+top_dir="$(git rev-parse --show-toplevel)"
+default_dest="$top_dir/pkg"
+
+export PKGDEST=${PKGDEST:-$default_dest}
+export SRCDEST="$top_dir/src-common"
+
+mkdir -p $PKGDEST
+mkdir -p $SRCDEST
+
+if [ -n "$git" ]; then
+    find ! -path "./dieggsy-*" -name PKGBUILD -execdir makepkg $force -scr --sign --noconfirm \;
+    nothing=false
+    cd $PKGDEST
+    repo-add --sign -R -n dieggsy.db.tar.xz *-git*.pkg.tar.xz
+    cd -
+fi
+
+if [ -n "$meta" ]; then
+    find -path "./dieggsy-*" -name PKGBUILD -execdir makepkg $force -dc --sign --noconfirm \;
+    nothing=false
+    cd $PKGDEST
+    repo-add --sign -R -n dieggsy.db.tar.xz dieggsy-*.pkg.tar.xz
+    cd -
+fi
+
+
