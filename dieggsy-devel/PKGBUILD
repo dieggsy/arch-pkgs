@@ -1,7 +1,7 @@
 # Maintainer: dieggsy <dieggsy@pm.me>
 
 pkgname=dieggsy-devel
-pkgver=2.2
+pkgver=2.3
 pkgrel=1
 pkgdesc="Development meta-package"
 arch=('any')
@@ -11,7 +11,7 @@ groups=('dieggsy')
 depends=(python
          python-dbus
          chicken
-         hyperfine-bin
+         hyperfine
          python
          python-numpy
          python-scipy)
