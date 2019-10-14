@@ -1,7 +1,7 @@
 # Maintainer: dieggsy <dieggsy@pm.me>
 
 pkgname=dieggsy-devel
-pkgver=2.3
+pkgver=2.4
 pkgrel=1
 pkgdesc="Development meta-package"
 arch=('any')
@@ -15,3 +15,10 @@ depends=(python
          python
          python-numpy
          python-scipy)
+optdepends=('d-feet: dbus debugging'
+            'clang: for emacs lsp-mode'
+            'bear: for emacs lsp-mode'
+            'eigen: matrices in C++'
+            opencv
+            racket
+            rustup)
