@@ -1,106 +1,119 @@
 # Maintainer: dieggsy <dieggsy@pm.me>
 
-pkgname=dieggsy-desktop
-pkgver=6.4
+pkgname=(dieggsy-desktop dieggsy-thinkpad)
+pkgver=6.5
 pkgrel=1
 pkgdesc="Desktop system meta-package"
 arch=('any')
 url="https://github.com/dieggsy/arch-pkgs"
 license=('MIT')
 groups=('dieggsy')
-depends=(bspwm
-         alsa-utils
-         aspell-en
-         # autocutsel
-         blueman
-         bluez
-         cmus
-         compton
-         d-feet
-         dnsmasq
-         dunst
-         emacs-git
-         espeak-ng
-         # exfat-utils
-         feh
-         firefox
-         gnome-keyring # for nextcloud-client
-         gnome-themes-extra # for Adwaita-dark
-         # guvcview
-         # gvfs
-         libdvdcss
-         libnotify
-         libreoffice-fresh
-         # materia-gtk-theme
-         mpv
-         # mpv-mpris
-         networkmanager
-         networkmanager-dmenu-git
-         networkmanager-openvpn
-         nextcloud-client
-         nm-connection-editor
-         nordvpn-bin
-         # ntfs-3g
-         openssh
-         openssh-askpass
-         openvpn
-         papirus-icon-theme
-         pass
-         passff-host
-         pavucontrol
-         # pcmanfm-gtk3
-         # phantomjs-bin
-         playerctl
-         polybar
-         pulseaudio-alsa
-         pulseaudio-bluetooth
-         rofi
-         screenkey
-         scrot
-         physlock
-         spotify
-         st-git
-         sxhkd
-         sxiv
-         # syncthing
-         # terminus-font
-         texlive-core
-         thermald
-         tlp
-         tmux
-         ttf-iosevka-git
-         ttf-sarasa-gothic
-         ttf-symbola
-         # ttf-weather-icons
-         tzupdate
-         # udiskie
-         unclutter-xfixes-git
-         # vlc
-         x11-ssh-askpass
-         xcursor-breeze
-         # xarchiver
-         xcape
-         xss-lock
-         youtube-dl
-         zathura
-         zathura-pdf-poppler
-         zathura-ps
 
-         # xorg
-         xorg-xinput
-         ## xorg group
-         xorg-fonts-alias
-         xorg-server
-         xorg-xbacklight
-         xorg-xev
-         xorg-xinit
-         xorg-xmodmap
-         xorg-xprop
-         xorg-xrandr
-         xorg-xrefresh
-         xorg-xset
-         xorg-xsetroot
-         xorg-xwininfo)
+package_dieggsy-desktop() {
+    depends=(dieggsy-base)
+
+    # bspwm/desktop
+    depends+=(bspwm
+              sxhkd
+              polybar # aur !
+              rofi
+              dunst libnotify
+              xss-lock
+              physlock
+              gnome-themes-extra # for Adwaita-dark
+              papirus-icon-theme
+              xcursor-breeze # aur !
+              unclutter-xfixes-git # aur !
+              openssh-askpass)
+    optdepends=(compton autocutsel)
+
+    # networking and connectivity
+    depends+=(networkmanager
+              networkmanager-dmenu-git # aur !
+              nm-connection-editor
+              dnsmasq
+              tzupdate # aur !
+              bluez
+              blueman)
+    optdepends+=(nordvpn-bin # aur !
+                 networkmanager-openvpn)
+
+    # applications (general)
+    depends+=(firefox
+              emacs-git
+              st-git
+              cmus
+              libreoffice-fresh
+              sxiv
+              zathura
+              zathura-pdf-poppler
+              zathura-ps
+              mpv
+              texlive-core)
+    optdepends+=(cmus
+                 vlc
+                 'mpv-mpris: for controlling mpv through playerctl' # aur !
+                 spotify
+                 gimp
+                 obs-studio
+                 'screenkey: for obs-studio'
+                 passff-host # aur !
+                 pcmanfm-gtk3
+                 'gvfs: see pcmanfm-gtk3'
+                 'xarchiver: see pcmanfm-gtk3')
+
+    # command line utils
+    depends+=(feh pass scrot tmux youtube-dl espeak-ng)
+    # aur !
+    optdepends+=(inxi
+                 phantomjs-bin)
+
+    # multimedia support
+    depends+=(alsa-utils
+              libdvdcss
+              pavucontrol
+              pulseaudio-alsa
+              pulseaudio-bluetooth)
+    optdepends+=(playerctl)
+
+    # fonts
+    depends+=(ttf-iosevka-git
+              ttf-sarasa-gothic
+              ttf-symbola)
+
+    # xorg and related utilities
+    depends+=(xorg-xinput
+              xcape
+              ## xorg group
+              xorg-fonts-alias
+              xorg-server
+              xorg-xbacklight
+              xorg-xev
+              xorg-xinit
+              xorg-xmodmap
+              xorg-xprop
+              xorg-xrandr
+              xorg-xrefresh
+              xorg-xset
+              xorg-xsetroot
+              xorg-xwininfo)
+
+    # services and daemons
+    depends+=(tlp
+              thermald
+              nextcloud-client
+              gnome-keyring # for nextcloud-client
+             )
+    optdepends+=(udiskie)
+
+    # filesystem support
+    optdepends+=('ntfs-3g: for windows-formatted drives'
+                 'exfat-utils: for exfat drives (somewhat common for sharing)')
+}
+
+package_dieggsy-thinkpad() {
+    depends=(dieggsy-desktop intel-ucode xf86-video-intel acpi_call tp_smapi)
+}
 
 post_install() {
     systemctl enable --now tlp.service tlp-sleep.service
