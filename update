@@ -8,6 +8,7 @@ usage () {
     echo -e "Available commands:\n"
     echo "      git     only build git packages and add to repo"
     echo "      meta    only build meta-packages and add to repo"
+    echo "      aur     only build packages listed in aur-pkgs.txt with aurutils"
     echo -e "  -f          force rebuild the packages (makepkg -f option)"
     echo -e "  -h, help    show this message and exit\n"
     echo -e "Note: Specifying no options is equivalent to ./update git meta\n"
@@ -25,13 +26,14 @@ while getopts ":f" opt; do
 done
 
 if [ -z "$1" ]; then
-    set git meta
+    set git meta aur
 fi
 
 while [ -n "$1" ]; do
     case "$1" in
         meta) meta=true; shift ;;
         git) git=true; shift ;;
+        aur) aur=true; shift ;;
         help) usage ;;
         *) usage ;;
     esac
@@ -49,17 +51,17 @@ mkdir -p $SRCDEST
 if [ -n "$git" ]; then
     find ! -path "./dieggsy-*" -name PKGBUILD -execdir makepkg $force $sign -scr --noconfirm \;
     nothing=false
-    cd $PKGDEST
-    repo-add $sign -R -n dieggsy.db.tar.xz *-git*.pkg.tar.xz
-    cd -
 fi
 
 if [ -n "$meta" ]; then
     find -path "./dieggsy-*" -name PKGBUILD -execdir makepkg $force $sign -dc --noconfirm \;
     nothing=false
-    cd $PKGDEST
-    repo-add $sign -R -n dieggsy.db.tar.xz dieggsy-*.pkg.tar.xz
-    cd -
 fi
 
+if [ -n "$aur" ]; then
+    repo=$(basename $(ls $PKGDEST/*.db || echo "default.db") .db)
+    aur sync --noview --root "$PKGDEST" -d $repo $force $sign -rnR "$(<aur-pkgs.txt)"
+fi
 
+cd $PKGDEST
+repo-add $sign -R -n dieggsy.db.tar.xz *.pkg.tar.xz
