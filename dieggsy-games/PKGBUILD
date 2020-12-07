@@ -1,7 +1,7 @@
 # Maintainer: dieggsy <dieggsy@pm.me>
 
 pkgname=dieggsy-games
-pkgver=2
+pkgver=2.4
 pkgrel=1
 pkgdesc="Gaming meta-package"
 arch=('any')
@@ -12,9 +12,12 @@ depends=(lib32-libpulse
          lib32-openal
          lib32-vulkan-intel
          lib32-vulkan-icd-loader
-         lutris
-         minetest
+         # lutris
          steam
-         steam-fonts
+         steam-fonts # aur !
          vulkan-intel
-         wine)
+         # wine
+        )
+optdepends=(minetest
+            minecraft-launcher # aur !
+           )

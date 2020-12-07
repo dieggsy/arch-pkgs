@@ -1,7 +1,7 @@
 # Maintainer: dieggsy <dieggsy@pm.me>
 
 pkgname=(dieggsy-base dieggsy-server)
-pkgver=3.4
+pkgver=3.7
 pkgrel=1
 pkgdesc="Base system meta-package"
 arch=('any')
@@ -18,7 +18,7 @@ depends=(base linux-firmware diffutils man-db man-pages)
 depends+=(autoconf automake gcc make patch pkgconf sudo util-linux)
 
 # other devel
-depends+=(ccache gdb)
+depends+=(ccache gdb git)
 
 # shell (zsh)
 depends+=(zsh
@@ -31,7 +31,7 @@ depends+=(zsh
 depends+=(openssh autossh)
 
 # package management
-depends+=(yay-bin # aur !
+depends+=(paru-bin # aur !
           pacman-contrib
           reflector)
 
@@ -45,7 +45,10 @@ depends+=(ncdu htop)
 depends+=(neovim python-pynvim)
 
 # other
-depends+=(git mlocate ripgrep rsync stow)
+depends+=(mlocate ripgrep rsync stow)
+
+# optional
+optdepends=(zip unzip wget arch-audit)
 
 package_dieggsy-base() {
     depends+=(linux)
@@ -53,6 +56,7 @@ package_dieggsy-base() {
 
 package_dieggsy-server() {
     depends+=(linux-lts)
+    optdepends+=(grub)
 }
 
 post_install() {

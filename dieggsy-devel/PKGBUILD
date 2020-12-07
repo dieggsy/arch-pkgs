@@ -1,7 +1,7 @@
 # Maintainer: dieggsy <dieggsy@pm.me>
 
 pkgname=dieggsy-devel
-pkgver=2.4
+pkgver=2.7
 pkgrel=1
 pkgdesc="Development meta-package"
 arch=('any')
@@ -14,11 +14,20 @@ depends=(python
          hyperfine
          python
          python-numpy
-         python-scipy)
+         python-scipy
+         python-matplotlib)
 optdepends=('d-feet: dbus debugging'
-            'clang: for emacs lsp-mode'
-            'bear: for emacs lsp-mode'
+            'ccls: for emacs lsp-mode'
+            'bear: for emacs lsp-mode' # aur !
+            'cmake: for emacs vterm-mode'
             'eigen: matrices in C++'
+            python-nltk
+            android-studio
+            android-tools
+            arduino
+            arduino-avr-core
+            gsl
+            gnu-netcat
             opencv
             racket
             rustup)

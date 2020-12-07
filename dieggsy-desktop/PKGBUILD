@@ -1,7 +1,7 @@
 # Maintainer: dieggsy <dieggsy@pm.me>
 
 pkgname=(dieggsy-desktop dieggsy-thinkpad)
-pkgver=6.5
+pkgver=6.11
 pkgrel=1
 pkgdesc="Desktop system meta-package"
 arch=('any')
@@ -25,7 +25,7 @@ package_dieggsy-desktop() {
               xcursor-breeze # aur !
               unclutter-xfixes-git # aur !
               openssh-askpass)
-    optdepends=(compton autocutsel)
+    optdepends=(picom autocutsel)
 
     # networking and connectivity
     depends+=(networkmanager
@@ -35,13 +35,13 @@ package_dieggsy-desktop() {
               tzupdate # aur !
               bluez
               blueman)
-    optdepends+=(nordvpn-bin # aur !
-                 networkmanager-openvpn)
+    optdepends+=(networkmanager-openvpn
+                 speedtest-cli)
 
     # applications (general)
     depends+=(firefox
               emacs-git
-              st-git
+              alacritty
               cmus
               libreoffice-fresh
               sxiv
@@ -51,22 +51,27 @@ package_dieggsy-desktop() {
               mpv
               texlive-core)
     optdepends+=(cmus
+                 lingot # aur !
                  vlc
+                 kdenlive
+                 ardour
                  'mpv-mpris: for controlling mpv through playerctl' # aur !
                  spotify
                  gimp
                  obs-studio
+                 audacity
                  'screenkey: for obs-studio'
-                 passff-host # aur !
+                 passff-host
                  pcmanfm-gtk3
                  'gvfs: see pcmanfm-gtk3'
                  'xarchiver: see pcmanfm-gtk3')
 
     # command line utils
     depends+=(feh pass scrot tmux youtube-dl espeak-ng)
-    # aur !
-    optdepends+=(inxi
-                 phantomjs-bin)
+    optdepends+=(inxi # aur !
+                 phantomjs-bin # aur !
+                 xkcdpass
+                )
 
     # multimedia support
     depends+=(alsa-utils
@@ -79,13 +84,15 @@ package_dieggsy-desktop() {
     # fonts
     depends+=(ttf-iosevka-git
               ttf-sarasa-gothic
-              ttf-symbola)
+              noto-fonts
+              noto-fonts-extra
+              noto-fonts-emoji
+             )
 
     # xorg and related utilities
     depends+=(xorg-xinput
               xcape
               ## xorg group
-              xorg-fonts-alias
               xorg-server
               xorg-xbacklight
               xorg-xev
@@ -103,6 +110,7 @@ package_dieggsy-desktop() {
               thermald
               nextcloud-client
               gnome-keyring # for nextcloud-client
+              polkit-gnome
              )
     optdepends+=(udiskie)
 
