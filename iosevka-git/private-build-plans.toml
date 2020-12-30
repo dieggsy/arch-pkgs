@@ -1,16 +1,38 @@
-# custom
-[buildPlans.iosevka-custom]
-family = "Iosevka Term"
-design = ["term", "v-asterisk-low", "cv02", "cv04", "cv09", "cv12", "cv31", "cv38", "cv43", "cv46", "cv62"]
+[buildPlans.iosevka-custom]      # <iosevka-custom> is your plan name
+family = "Iosevka Term"          # Font menu family name
+
+spacing = "fontconfig-mono"      # Optional; Values: `normal`, `term`,
+                                 # `fontconfig-mono`, or `fixed`
+
+serifs = "slab"                  # Optional; Values: `sans` or `slab`
+
+# Optional; Configure single character's variant
+[buildPlans.iosevka-custom.variants.design]
+asterisk = "low"
+
+[buildPlans.iosevka-custom.variants.upright]
+g = "doublestorey"
+# tilde = "low"
+# capital-q = 'straight'
+# a = 'singlestorey'
+# three = 'flattop'
+# dollar = 'open'
 
 [buildPlans.iosevka-custom.weights.regular]
 shape = 400
+menu  = 400
 css   = 400
 
 [buildPlans.iosevka-custom.weights.bold]
 shape = 700
+menu  = 700
 css   = 700
 
-[buildPlans.iosevka-custom.slants]
+[buildPlans.iosevka-custom.slopes]
 upright = "normal"
 italic = "italic"
+
+[buildPlans.iosevka-custom.widths.normal]
+shape = 500        # Unit Width, measured in 1/1000 em.
+menu  = 5          # Width grade for the font's names.
+css   = "normal"   # "font-stretch' property of webfont CSS.
