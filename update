@@ -64,4 +64,5 @@ if [ -n "$aur" ]; then
 fi
 
 cd $PKGDEST
-repo-add $sign -R -n dieggsy.db.tar.xz *.pkg.tar.xz
+repo-add $sign -R -n dieggsy.db.tar.xz *.pkg.tar.zst
+paccache -c ./ -rk1
