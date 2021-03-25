@@ -13,3 +13,4 @@ lingot
 minecraft-launcher
 libgccjit
 neovim-drop-in
+zoom

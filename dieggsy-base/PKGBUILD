@@ -1,7 +1,7 @@
 # Maintainer: dieggsy <dieggsy@pm.me>
 
 pkgname=(dieggsy-base dieggsy-server)
-pkgver=3.7
+pkgver=3.8
 pkgrel=1
 pkgdesc="Base system meta-package"
 arch=('any')
@@ -64,5 +64,6 @@ post_install() {
     systemctl enable --now cronie.service
     systemctl enable --now ntpd.service
     systemctl enable --now paccache.timer
+    systemctl enable --now logrotate.timer
 }
 

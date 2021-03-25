@@ -1,7 +1,7 @@
 # Maintainer: dieggsy <dieggsy@pm.me>
 
 pkgname=(dieggsy-desktop dieggsy-thinkpad)
-pkgver=6.11
+pkgver=6.15
 pkgrel=1
 pkgdesc="Desktop system meta-package"
 arch=('any')
@@ -32,7 +32,6 @@ package_dieggsy-desktop() {
               networkmanager-dmenu-git # aur !
               nm-connection-editor
               dnsmasq
-              tzupdate # aur !
               bluez
               blueman)
     optdepends+=(networkmanager-openvpn
@@ -42,7 +41,6 @@ package_dieggsy-desktop() {
     depends+=(firefox
               emacs-git
               alacritty
-              cmus
               libreoffice-fresh
               sxiv
               zathura
@@ -56,7 +54,7 @@ package_dieggsy-desktop() {
                  kdenlive
                  ardour
                  'mpv-mpris: for controlling mpv through playerctl' # aur !
-                 spotify
+                 spotify # aur !
                  gimp
                  obs-studio
                  audacity
@@ -64,14 +62,24 @@ package_dieggsy-desktop() {
                  passff-host
                  pcmanfm-gtk3
                  'gvfs: see pcmanfm-gtk3'
-                 'xarchiver: see pcmanfm-gtk3')
+                 'xarchiver: see pcmanfm-gtk3'
+                 signal-desktop
+                 zoom # aur !
+                 texlive-bibtexextra
+                 texlive-fontsextra
+                 texlive-formatsextra
+                 texlive-games
+                 texlive-humanities
+                 texlive-music
+                 texlive-pstricks
+                 texlive-publishers
+                 texlive-science)
 
     # command line utils
     depends+=(feh pass scrot tmux youtube-dl espeak-ng)
     optdepends+=(inxi # aur !
                  phantomjs-bin # aur !
-                 xkcdpass
-                )
+                 xkcdpass)
 
     # multimedia support
     depends+=(alsa-utils
@@ -86,8 +94,7 @@ package_dieggsy-desktop() {
               ttf-sarasa-gothic
               noto-fonts
               noto-fonts-extra
-              noto-fonts-emoji
-             )
+              noto-fonts-emoji)
 
     # xorg and related utilities
     depends+=(xorg-xinput
@@ -110,8 +117,7 @@ package_dieggsy-desktop() {
               thermald
               nextcloud-client
               gnome-keyring # for nextcloud-client
-              polkit-gnome
-             )
+              polkit-gnome)
     optdepends+=(udiskie)
 
     # filesystem support
@@ -120,7 +126,8 @@ package_dieggsy-desktop() {
 }
 
 package_dieggsy-thinkpad() {
-    depends=(dieggsy-desktop intel-ucode xf86-video-intel acpi_call tp_smapi)
+    depends=(dieggsy-desktop intel-ucode acpi_call)
+    optdepends=(xf86-video-intel)
 }
 
 post_install() {

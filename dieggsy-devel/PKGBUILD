@@ -1,7 +1,7 @@
 # Maintainer: dieggsy <dieggsy@pm.me>
 
 pkgname=dieggsy-devel
-pkgver=2.7
+pkgver=2.8
 pkgrel=1
 pkgdesc="Development meta-package"
 arch=('any')
@@ -21,6 +21,9 @@ optdepends=('d-feet: dbus debugging'
             'bear: for emacs lsp-mode' # aur !
             'cmake: for emacs vterm-mode'
             'eigen: matrices in C++'
+            'valgrind: C memory management'
+            'tcc: fast c compiler'
+            'intel-mkl: faster numpy'
             python-nltk
             android-studio
             android-tools
@@ -30,4 +33,5 @@ optdepends=('d-feet: dbus debugging'
             gnu-netcat
             opencv
             racket
+            sbcl
             rustup)
