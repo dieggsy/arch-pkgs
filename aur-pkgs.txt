@@ -11,3 +11,5 @@ paru-bin
 zsh-autopair-git
 lingot
 minecraft-launcher
+libgccjit
+neovim-drop-in
