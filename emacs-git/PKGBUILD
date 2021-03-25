@@ -11,11 +11,13 @@ arch=('x86_64')
 license=('GPL3')
 depends=('alsa-lib' 'libmagick' 'libxpm' 'libjpeg' 'libtiff'
          'giflib' 'libpng' 'librsvg' 'lcms2' 'libxml2' 'jansson'
-         'libxft' 'libotf' 'gnutls' 'zlib' 'gmp' 'harfbuzz')
+         'libxft' 'libotf' 'gnutls' 'zlib' 'gmp' 'harfbuzz' 'cairo'
+         'libgccjit'
+        )
 makedepends=('git')
 provides=($_pkgname)
 conflicts=($_pkgname)
-source=(git://git.sv.gnu.org/$_pkgname.git)
+source=(git://git.sv.gnu.org/$_pkgname.git#branch=feature/native-comp)
 md5sums=('SKIP')
 
 pkgver() {
@@ -40,7 +42,8 @@ build(){
                 --with-rsvg --with-lcms2 --with-xml2 --with-json --with-xft \
                 --with-libotf --with-dbus --with-gnutls --with-zlib \
                 --with-modules --with-threads --with-compress-install \
-                --with-libgmp --with-xim --with-harfbuzz
+                --with-libgmp --with-xim --with-harfbuzz --with-cairo \
+                --with-native-compilation
     make
 }
 
