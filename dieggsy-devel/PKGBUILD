@@ -1,7 +1,7 @@
 # Maintainer: dieggsy <dieggsy@pm.me>
 
 pkgname=dieggsy-devel
-pkgver=2.8
+pkgver=2.9
 pkgrel=1
 pkgdesc="Development meta-package"
 arch=('any')
@@ -9,13 +9,8 @@ url="https://github.com/dieggsy/arch-pkgs"
 license=('MIT')
 groups=('dieggsy')
 depends=(python
-         python-dbus
          chicken
-         hyperfine
-         python
-         python-numpy
-         python-scipy
-         python-matplotlib)
+         hyperfine)
 optdepends=('d-feet: dbus debugging'
             'ccls: for emacs lsp-mode'
             'bear: for emacs lsp-mode' # aur !
@@ -23,8 +18,15 @@ optdepends=('d-feet: dbus debugging'
             'eigen: matrices in C++'
             'valgrind: C memory management'
             'tcc: fast c compiler'
+            'musl: cleaner c lib'
+            ipython
+            python-numpy
             'intel-mkl: faster numpy'
-            python-nltk
+            python-scipy
+            python-matplotlib
+            'python-nltk: nlp'
+            'python-docopt: for nltk'
+            'python-regex: for nltk'
             android-studio
             android-tools
             arduino
@@ -34,4 +36,5 @@ optdepends=('d-feet: dbus debugging'
             opencv
             racket
             sbcl
-            rustup)
+            rustup
+            opam)

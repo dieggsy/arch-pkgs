@@ -1,7 +1,7 @@
 # Maintainer: dieggsy <dieggsy@pm.me>
 
 pkgname=(dieggsy-desktop dieggsy-thinkpad)
-pkgver=6.15
+pkgver=6.17
 pkgrel=1
 pkgdesc="Desktop system meta-package"
 arch=('any')
@@ -16,6 +16,7 @@ package_dieggsy-desktop() {
     depends+=(bspwm
               sxhkd
               polybar # aur !
+              python-dbus # for bluez-rofi
               rofi
               dunst libnotify
               xss-lock
@@ -76,7 +77,7 @@ package_dieggsy-desktop() {
                  texlive-science)
 
     # command line utils
-    depends+=(feh pass scrot tmux youtube-dl espeak-ng)
+    depends+=(feh pass maim tmux youtube-dl espeak-ng)
     optdepends+=(inxi # aur !
                  phantomjs-bin # aur !
                  xkcdpass)

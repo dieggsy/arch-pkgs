@@ -1,7 +1,7 @@
 # Maintainer: dieggsy <dieggsy@pm.me>
 
 pkgname=(dieggsy-base dieggsy-server)
-pkgver=3.8
+pkgver=3.9
 pkgrel=1
 pkgdesc="Base system meta-package"
 arch=('any')
@@ -45,10 +45,10 @@ depends+=(ncdu htop)
 depends+=(neovim python-pynvim)
 
 # other
-depends+=(mlocate ripgrep rsync stow)
+depends+=(plocate ripgrep rsync stow)
 
 # optional
-optdepends=(zip unzip wget arch-audit)
+optdepends=(zip unzip wget arch-audit lostfiles)
 
 package_dieggsy-base() {
     depends+=(linux)
