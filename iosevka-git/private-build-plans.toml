@@ -9,7 +9,7 @@ no-ligation = true
 
 # Optional; Configure single character's variant
 [buildPlans.iosevka-custom.variants.design]
-asterisk = "low"
+asterisk = "penta-low"
 
 [buildPlans.iosevka-custom.variants.upright]
 # g = "double-storey"
