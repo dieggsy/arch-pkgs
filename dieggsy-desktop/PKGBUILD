@@ -1,7 +1,7 @@
 # Maintainer: dieggsy <dieggsy@pm.me>
 
 pkgname=(dieggsy-desktop dieggsy-thinkpad)
-pkgver=6.17
+pkgver=6.18
 pkgrel=1
 pkgdesc="Desktop system meta-package"
 arch=('any')
@@ -29,14 +29,10 @@ package_dieggsy-desktop() {
     optdepends=(picom autocutsel)
 
     # networking and connectivity
-    depends+=(networkmanager
-              networkmanager-dmenu-git # aur !
-              nm-connection-editor
-              dnsmasq
+    depends+=(iwd
               bluez
               blueman)
-    optdepends+=(networkmanager-openvpn
-                 speedtest-cli)
+    optdepends+=(speedtest-cli)
 
     # applications (general)
     depends+=(firefox
@@ -134,6 +130,7 @@ package_dieggsy-thinkpad() {
 post_install() {
     systemctl enable --now tlp.service tlp-sleep.service
     systemctl enable --now thermald
-    systemctl enable --now NetworkManager.service NetworkManager-dispatcher.service
+    systemctl enable --now systemd-resolved.service
+    systemctl enable --now iwd.service
     systemctl enable --now bluetooth.service
 }
